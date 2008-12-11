@@ -337,7 +337,7 @@ end
 if File.directory?(gems_dir = File.join(File.dirname(__FILE__), '..', 'gems'))
   $BUNDLE = true; Gem.clear_paths; Gem.path.replace([File.expand_path(gems_dir)])
   ENV["PATH"] = "\#{File.dirname(__FILE__)}:\#{gems_dir}/bin:\#{ENV["PATH"]}"
-  if (local_gem = Dir[File.join(gems_dir, "specifications", "#{spec.name}-*.gemspec")].last)
+  if (local_gem = Dir[File.join(gems_dir, "specifications", "#{spec.name}-[0-9]*.gemspec")].last)
     version = File.basename(local_gem)[/-([\\.\\d]+)\\.gemspec$/, 1]
   end
 end
